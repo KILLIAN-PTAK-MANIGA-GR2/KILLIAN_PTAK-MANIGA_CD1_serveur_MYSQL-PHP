@@ -1,0 +1,27 @@
+{
+  "name": "pokemon-card-platform",
+  "version": "1.0.0",
+  "description": "A platform for collecting and trading Pokémon cards with IoT functionalities.",
+  "main": "assets/js/app.js",
+  "scripts": {
+    "start": "node iot/server/iot_server.js",
+    "build": "echo 'Build process here'",
+    "test": "echo 'No tests specified'"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "axios": "^0.21.1",
+    "mqtt": "^4.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "keywords": [
+    "pokemon",
+    "cards",
+    "trading",
+    "iot"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

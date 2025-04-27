@@ -1,0 +1,19 @@
+{
+  "device_name": "PokemonCardIoTDevice",
+  "device_id": "PCID-001",
+  "network": {
+    "ssid": "YourNetworkSSID",
+    "password": "YourNetworkPassword"
+  },
+  "mqtt": {
+    "broker": "mqtt://broker.hivemq.com",
+    "port": 1883,
+    "topic": "pokemon/cards"
+  },
+  "update_interval": 60000,
+  "firmware_version": "1.0.0",
+  "location": {
+    "latitude": 0.0,
+    "longitude": 0.0
+  }
+}

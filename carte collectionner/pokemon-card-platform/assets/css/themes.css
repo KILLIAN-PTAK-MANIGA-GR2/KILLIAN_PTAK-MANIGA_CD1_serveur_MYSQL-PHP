@@ -1,0 +1,78 @@
+:root {
+    --primary-color: #ffcc00;
+    --secondary-color: #ff5733;
+    --background-color: #f0f0f0;
+    --text-color: #333333;
+    --card-background: #ffffff;
+    --card-border: #dddddd;
+    --hover-color: #ffe600;
+}
+
+/* Thème sombre */
+.dark-theme {
+    --primary-color: #535364; /* Bleu-gris foncé pour les éléments principaux */
+    --secondary-color: #ffcc00; /* Orange doux pour les éléments interactifs */
+    --background-color: #2d2d44; /* Fond sombre mais pas trop intense */
+    --text-color: #f0f0f0; /* Texte clair pour un bon contraste */
+    --card-background: #494954; /* Fond des cartes légèrement plus clair que le fond principal */
+    --card-border: #5b5b6c; /* Bordures discrètes mais visibles */
+    --hover-color: #ffcc00; /* Couleur vive pour les interactions au survol */
+}
+
+/* Thème clair */
+.light-theme {
+    --primary-color: #ffcc00;
+    --secondary-color: #ff5733;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-background: #f9f9f9;
+    --card-border: #dddddd;
+    --hover-color: #ffe600;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: var(--hover-color);
+}
+
+.button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+}
+
+
+.sidebar {
+    background-color: var(--card-background);
+    border-right: 1px solid var(--card-border);
+    padding: 20px;
+    height: 100vh;
+}
+
+.sidebar a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+
+.sidebar a:hover {
+    color: var(--hover-color);
+}

@@ -1,0 +1,17 @@
+{
+  "mqtt": {
+    "broker": "mqtt://broker.hivemq.com",
+    "port": 1883,
+    "clientId": "pokemonCardClient",
+    "username": "your_username",
+    "password": "your_password",
+    "topic": {
+      "incoming": "pokemon/cards/incoming",
+      "outgoing": "pokemon/cards/outgoing"
+    },
+    "options": {
+      "clean": true,
+      "keepalive": 60
+    }
+  }
+}
