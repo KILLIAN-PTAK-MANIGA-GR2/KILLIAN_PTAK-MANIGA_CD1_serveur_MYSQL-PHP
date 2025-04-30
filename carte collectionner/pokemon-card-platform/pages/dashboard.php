@@ -45,7 +45,11 @@ $obtained_cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <nav class="desktop-nav">
             <ul>
                 <li><a href="acceuile.php">Accueil</a></li>
-                <li><a href="logout.php">Déconnexion</a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="dashboard.php">Tableau de Bord</a></li>
+                    <li><a href="trade.php">Échanger</a></li>
+                    <li><a href="logout.php" id="logout-link">Déconnexion</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

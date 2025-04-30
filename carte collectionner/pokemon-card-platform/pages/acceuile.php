@@ -55,11 +55,14 @@ $cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <nav class="desktop-nav">
             <ul>
                 <li><a href="acceuile.php">Accueil</a></li>
-                <li><a href="login.php" id="login-link">Connexion</a></li>
-                <li><a href="register.php" id="register-link">Inscription</a></li>
-                <li><a href="dashboard.php">Tableau de Bord</a></li>
-                <li><a href="trade.php">Échanger</a></li>
-                <li><a href="logout.php" id="logout-link">Déconnexion</a></li>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="dashboard.php">Tableau de Bord</a></li>
+                    <li><a href="trade.php">Échanger</a></li>
+                    <li><a href="logout.php" id="logout-link">Déconnexion</a></li>
+                <?php else: ?>
+                    <li><a href="login.php" id="login-link">Connexion</a></li>
+                    <li><a href="register.php" id="register-link">Inscription</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
         <!-- Actions dans l'en-tête -->
@@ -111,11 +114,14 @@ $cards = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div id="sidebar" class="sidebar hidden">
         <ul>
             <li><a href="acceuile.php">Accueil</a></li>
-            <li><a href="login.php" id="login-link-sidebar">Connexion</a></li>
-            <li><a href="register.php" id="register-link-sidebar">Inscription</a></li>
-            <li><a href="dashboard.php">Tableau de Bord</a></li>
-            <li><a href="trade.php">Échanger</a></li>
-            <li><a href="logout.php" id="logout-link-sidebar">Déconnexion</a></li>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <li><a href="dashboard.php">Tableau de Bord</a></li>
+                <li><a href="trade.php">Échanger</a></li>
+                <li><a href="logout.php" id="logout-link-sidebar">Déconnexion</a></li>
+            <?php else: ?>
+                <li><a href="login.php" id="login-link-sidebar">Connexion</a></li>
+                <li><a href="register.php" id="register-link-sidebar">Inscription</a></li>
+            <?php endif; ?>
         </ul>
     </div>
     <main>
