@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : dim. 27 avr. 2025 à 18:01
+-- Généré le : mer. 30 avr. 2025 à 15:05
 -- Version du serveur : 8.4.3
 -- Version de PHP : 8.3.16
 
@@ -1077,8 +1077,9 @@ CREATE TABLE `trades` (
   `card_id` int NOT NULL COMMENT 'Référence à cards.id',
   `from_user_id` int NOT NULL COMMENT 'Référence à users.id',
   `to_user_id` int NOT NULL COMMENT 'Référence à users.id',
-  `status` enum('pending','accepted','rejected') NOT NULL COMMENT 'Statut de l''échange',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Date de création'
+  `status` enum('pending','waiting_acceptance','completed') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'Statut de l''échange',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Date de création',
+  `proposed_card_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -1100,7 +1101,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created_at`) VALUES
-(1, 'killian', 'animation3dkillian@gmail.com', '$2y$10$tLoujs8scCVI9OqYtdKW4uj4YdAKJVUUdPn0VqD.GJqvmmAZofuvO', '2025-04-25 11:07:13');
+(2, 'killian', 'animation3dkillian@gmail.com', '$2y$10$.h5AyjKfcGuy6P1hBLg8mO.Et90N0SInLj69KApN.r88hCZmLOrYy', '2025-04-30 10:09:33'),
+(3, 'qkk', 'killian.ptak-maniga2@edu.devinci.fr', '$2y$10$CWKCzIDzQVls7vcB6WwH8.iXNvSMO5sMz.AjIubwcGUCnbEXcJwQG', '2025-04-30 10:11:37');
 
 -- --------------------------------------------------------
 
@@ -1114,6 +1116,22 @@ CREATE TABLE `user_cards` (
   `card_id` int NOT NULL,
   `obtained_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `user_cards`
+--
+
+INSERT INTO `user_cards` (`id`, `user_id`, `card_id`, `obtained_at`) VALUES
+(136, 2, 615, '2025-04-30 12:47:35'),
+(137, 3, 512, '2025-04-30 12:47:35'),
+(138, 2, 179, '2025-04-30 12:47:35'),
+(139, 3, 58, '2025-04-30 12:47:35'),
+(140, 2, 771, '2025-04-30 12:47:35'),
+(141, 2, 349, '2025-04-30 12:47:44'),
+(142, 2, 871, '2025-04-30 12:47:44'),
+(143, 3, 894, '2025-04-30 12:47:44'),
+(144, 3, 971, '2025-04-30 12:47:44'),
+(145, 3, 408, '2025-04-30 12:47:44');
 
 --
 -- Index pour les tables déchargées
@@ -1175,19 +1193,19 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT pour la table `trades`
 --
 ALTER TABLE `trades`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant unique';
+  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant unique', AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant unique', AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT COMMENT 'Identifiant unique', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `user_cards`
 --
 ALTER TABLE `user_cards`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
 
 --
 -- Contraintes pour les tables déchargées
